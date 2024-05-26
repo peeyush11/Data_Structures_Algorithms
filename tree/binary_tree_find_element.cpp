@@ -27,6 +27,13 @@ bool findElement(Node* root, int& val){
         return findElement(root->right_, val);
 }
 
+bool findElement_2(Node* root, int& val){
+    if(root == nullptr) return false;
+    if(root->data_ == val) return true;
+
+    return findElement_2(root->left_, val) || findElement_2(root->right_, val);
+}
+
 int main(){
 
     Node* root = new Node(10);
@@ -37,13 +44,19 @@ int main(){
     root->right_->left_ = new Node(5);
     root->right_->right_ = new Node(15);
 
-    int val = 10;
-    bool max_val = findElement(root, val);
+    int val = 15;
+    bool flag = findElement(root, val);
+    bool flag2 = findElement_2(root, val);
     
-    if(max_val)
-        std::cout<<"Value found in tree "<<std::endl;
+    if(flag)
+        std::cout<<"Method 1: Value found in tree "<<std::endl;
     else
-        std::cout<<"Value not found in tree"<<std::endl;
+        std::cout<<"Method 1: Value not found in tree"<<std::endl;
+
+    if(flag2)
+        std::cout<<"Method 2: Value found in tree "<<std::endl;
+    else
+        std::cout<<"Method 2: Value not found in tree"<<std::endl;
 
     return 0;
 }
