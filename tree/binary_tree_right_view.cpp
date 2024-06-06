@@ -52,6 +52,8 @@ int main(){
 
     for(int& val: right_view) std::cout<<val<<"\t";
 
+    delete root;
+
 
     return 0;
 }
