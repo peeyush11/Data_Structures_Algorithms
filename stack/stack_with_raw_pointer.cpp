@@ -94,6 +94,9 @@ int main(){
     // Stack object creation on heap using smart pointer
     auto st2 = std::make_unique<Stack<int>>(5);
     // getting raw pointer from smart pointer.
+    // Note: After scope ends, memory pointed to by st2 
+    // will be automatically deleted as it is a smart pointer.
+    // then the below temp will be a dangling pointer. Avoid using raw pointer like this.
     Stack<int>* temp = st2.get();
     st2->push(100);
     st2->push(200);
