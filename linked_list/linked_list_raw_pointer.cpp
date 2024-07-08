@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 template<typename U>
 struct ListNode{
@@ -78,6 +79,13 @@ int main(){
     l1->push(20);
     l1->push(33);
     l1->printList();
+
+    LinkedList<std::string>* l2 = new LinkedList<std::string>();
+    l2->push("Hello");
+    l2->push("World!");
+    l2->printList();
+
     delete l1;
+    delete l2;
     return 0;
 }
