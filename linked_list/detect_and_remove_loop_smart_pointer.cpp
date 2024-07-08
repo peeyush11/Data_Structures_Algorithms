@@ -19,7 +19,7 @@ class LinkedList{
         // But we have loop in the linked list.
         // the last node points to some other node in between the list
         // We have to handle this loop removal in destructor 
-        // else we get segmentation error.    
+        // else we get segmentation error or double delete error.    
         DetectAndRemoveLoop();
     };
 
